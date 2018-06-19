@@ -1,0 +1,643 @@
+<div class="container" ng-controller="entityDetailsCtrl">
+
+	<div class="row toprow">
+		<h2 class="col-sm-10">Entity Details &#45; Golden Record</h2>
+	</div>
+
+	<div class="row toprow">
+		<div class="alert alert-success alert-dismissable" ng-if="sucessMsg">
+			<a href="" class="close" data-dismiss="alert" aria-label="close">x</a>
+			{{sucessMsg}}
+		</div>
+		<div class="alert alert-danger alert-dismissable" ng-if="errorMsg">
+			<a href="" class="close" data-dismiss="alert" aria-label="close">x</a>
+			{{errorMsg}}
+		</div>
+	</div>
+	    <div class="panel panel-default">
+			<div class="panel-heading">
+				Person Details
+				<button class="btn btn-box-right collapsed" data-toggle="collapse"
+					href="#demo">
+					<i class=" fa fa-expand"></i>
+				</button>
+			</div>
+		<div id="demo" class="collapse in">
+			<div class="panel-body">
+				<table class="table-bordered table-striped table-condensed cf results" >
+              <thead class="cf">
+                <tr>
+                  <th>Name</th>
+                  <th>Birth Date</th>
+                  <th>Gender</th>
+                  <th>Phone</th>
+                  <th>Address</th>
+                  <th>Match Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="clientName" data-title="Name" >
+                  <span  ng-repeat="y in personDetailsData.client.clientNameList.clientName">{{y.firstName + " "  + y.middleName + " " + y.lastName}}</span></td>
+                  <td class="birthDaote" data-title="Birth Date"><span  ng-repeat="y in personDetailsData.client.dateofBirthList.dateofBirth">{{y.dateVal}}</span></td>
+                   <td class="gender" data-title="Gender"><span  ng-repeat="y in personDetailsData.client.genderList.gender">{{y.attrVal}}</span></td>
+                  <td class="phone" data-title="Phone"><span ng-repeat="y in personDetailsData.client.mobilePhoneList.mobilePhone">{{y.phNumber}}</span></td>
+                  <td class="address" data-title="address"><span ng-repeat="y in personDetailsData.client.homeAddressList.homeAddress">{{y.streetLine1 + " " + y.streetLine2 + " " +
+									y.streetLine3 + " " + y.streetLine4 + "," +y.city+ "," +y.state+ ","+zipCode}}</span></td>
+                  <td class="matchScore" data-title="Match Score" ng-model = "matchScore" style = "color:blue"><span>{{matchScore}}</span></td>
+                </tr>
+               
+              </tbody>
+            </table>
+				<!-- div  class = "col-sm-12">
+		            <div class = "col-sm-10" style = "border:1px solid gray;padding: 0;">
+		            	<div class = "col-sm-12" style = "padding:0;">
+		            		<div class = "col-sm-3" style = "border-right: 1px solid gray;font-size: 20px;">
+		            			<span ng-repeat="y in personDetailsData.client.clientNameList.clientName"><b>{{y.firstName + " " + y.lastName}}</b></span><br/>
+		            			<span></span>
+		            		</div>
+		            		<div class = "col-sm-3" style = "border-right: 1px solid gray;">
+		            			<span style = "color:gray;">Birth Date</span><br/>
+		            			<span ng-repeat="y in personDetailsData.client.dateofBirthList.dateofBirth">{{y.dateVal}}</span>
+		            		 </div>
+		            		<div class = "col-sm-3" style = "border-right: 1px solid gray;">
+		            			<span style = "color:gray;">Gender</span><br/>
+		            			<span  ng-repeat="y in personDetailsData.client.genderList.gender">{{y.attrVal}}</span>
+		            		</div>
+		            		<div class = "col-sm-3">
+		            			<span style = "color:gray;">Phone</span><br/>
+		            			<span ng-repeat="y in personDetailsData.client.mobilePhoneList.mobilePhone">{{y.phNumber}}</span>
+		            		</div>
+		            	</div>
+		            	<div class = "col-sm-12" style = "border-top: 1px solid gray;">
+							<span style = "color:gray;">Address</span><br/>
+		            		<span ng-repeat="y in personDetailsData.client.homeAddressList.homeAddress">{{y.streetLine1 + " " + y.streetLine2 + " " +
+									y.streetLine3 + " " + y.streetLine4 + "," +y.city+ "," +y.state+ ","+zipCode}}</span>
+						</div>
+		            </div>
+		            <div class = "col-sm-2" style = "border:1px solid gray;border-left:0;">
+			            <div class = "col-sm-12"  style = "padding: 11px;">
+			            	<span style = "color:gray;padding-left: 20px;">Match Score</span>
+			           </div>
+			            <div class = "col-sm-12" style = "padding: 3.8px;">
+			            	<span style = "padding-left: 47px; font-size:20px;"><b>{{matchScore}}</b></span>
+			            </div>
+		            </div>
+		          </div-->
+			</div>
+		</div>
+	</div>
+    
+	
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#!entityDetails#collapseTwo">Extended Demographics</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" style="display: inline-block; ">
+                <div class="panel-body col-sm-12">
+                	<div class = "col-sm-12">
+                	<div class = "col-sm-6">
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Name:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.clientNameList.clientName">
+                    		<span>{{y.firstName + " "  + y.middleName + " " + y.lastName}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>SSN:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.ssnlist.ssn">
+                    		<span>{{y.idNumber}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Birth Date:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.dateofBirthList.dateofBirth">
+                    		<span>{{y.dateVal}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12" >
+                    	<div class = "col-sm-6">
+                    		<span>Gender:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.genderList.gender">
+                    		<span>{{y.attrVal}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12" >
+                    	<div class = "col-sm-6">
+                    		<span>Ethnicity:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.ethnicityList.ethnicity">
+                    		<span>{{y.attrVal}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Race:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.raceList.race">
+                    		<span>{{y.attrVal}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>American Indian?</span>
+                    	</div>
+                    	<div class = "col-sm-6">
+                    		<span ng-repeat="y in personDetailsData.client.tribeList.tribe">{{y.attrVal}}</span>
+                    	</div>
+                    </div>
+                    <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Primary Language:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.primaryLanguageList.primaryLanguage">
+                    		<span>{{y.languageName}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Secondary Language:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.secondaryLanguageList.secondaryLanguage">
+                    		<span>{{y.languageName}}</span>
+                    	</div>
+                    </div>
+                    <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Spoken Language:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.spokenLanguageList.spokenLanguage">
+                    		<span>{{y.attrVal}}</span>
+                    	</div>
+                    </div>
+                    <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Veteran:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.veteranStatusList.veteranStatus">
+                    		<span>{{y.attrVal}}</span>
+                    	</div>
+                    </div>
+                 </div>
+                 <div class = "col-sm-6">
+                 	<!-- div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Primary Phone:</span>
+                    	</div>
+                    	<div class = "col-sm-6">
+                    		<span></span>
+                    	</div>
+                    </div-->
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Cell Phone:</span>
+                    	</div>
+                    	<div class = "col-sm-6"  ng-repeat="y in personDetailsData.client.mobilePhoneList.mobilePhone">
+                    		<span>{{y.phNumber}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Home Phone:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.homePhoneList.homePhone">
+                    		<span>{{y.phNumber}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Primary Email:</span>
+                    	</div>
+                    	<div class = "col-sm-6"  ng-repeat="y in personDetailsData.client.primaryEmailAddressList.primaryEmailAddress">
+                    		<span>{{y.attrVal}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Alternate Email:</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.alternateEmailList.alternateEmail">
+                    		<span>{{y.attrVal}}</span>
+                    	</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Home Address:	</span>
+                    	</div>
+                    	<div ng-repeat="y in personDetailsData.client.homeAddressList.homeAddress"
+							class="col-sm-6">
+							<p class="ng-binding" style = "margin:0">{{y.streetLine1 + " " + y.streetLine2 +
+								" " + y.streetLine3 + " " + y.streetLine4}}</p>
+							<p class="ng-binding" style = "margin:0">{{y.city}}, {{y.state}}</p>
+							<p class="ng-binding" style = "margin:0">{{y.zipCode}}</p>
+						</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Mailing Address:</span>
+                    	</div>
+                    	<div ng-repeat="y in personDetailsData.client.mailingAddressList.mailingAddress"
+							class="col-sm-6">
+							<p class="ng-binding" style = "margin:0">{{y.streetLine1 + " " + y.streetLine2 +
+								" " + y.streetLine3 + " " + y.streetLine4}}</p>
+							<p class="ng-binding" style = "margin:0">{{y.city}}, {{y.state}}</p>
+							<p class="ng-binding" style = "margin:0">{{y.zipCode}}</p>
+						</div>
+                    </div>
+                     <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Work Address:	</span>
+                    	</div>
+                    	<div ng-repeat="y in personDetailsData.client.workAddressList.workAddress"
+							class=" col-sm-6">
+							<p class="ng-binding" style = "margin:0">{{y.streetLine1 + " " + y.streetLine2 +
+								" " + y.streetLine3 + " " + y.streetLine4}}</p>
+							<p class="ng-binding" style = "margin:0">{{y.city}}, {{y.state}}</p>
+							<p class="ng-binding" style = "margin:0">{{y.zipCode}}</p>
+						</div>
+                    </div>
+                    <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Other Address:</span>
+                    	</div>
+                    	<div ng-repeat="y in personDetailsData.client.otherAddressList.otherAddress"
+							class="col-sm-6">
+							<p class="ng-binding" style = "margin:0">{{y.streetLine1 + " " + y.streetLine2 +
+								" " + y.streetLine3 + " " + y.streetLine4}}</p>
+							<p class="ng-binding" style = "margin:0">{{y.city}}, {{y.state}}</p>
+							<p class="ng-binding" style = "margin:0">{{y.zipCode}}</p>
+						</div>
+                    </div>
+                    <div class = "col-sm-12">
+                    	<div class = "col-sm-6">
+                    		<span>Homeless?</span>
+                    	</div>
+                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.residentialStatusList.residentialStatus">
+                    		<span>{{y.attrVal}}</span>
+                    	</div>
+                    </div>
+                 </div>
+                 </div><br/>
+	                <div class="panel-heading">
+		                <h5>
+		                    <b>Living Arrangements</b>
+		                </h5>
+		            </div>
+		            <div id="collapseInOne">
+		                <div class="panel-body">
+		                   <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>Current Living Arrangements:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.currentLivingArrangementsList.currentLivingArrangements">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span># of Children Under 18:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6"  ng-repeat="y in personDetailsData.client.nbrChildrenUnder18List.nbrChildrenUnder18">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span># of Children Under 5:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.nbrChildrenUnder5List.nbrChildrenUnder5">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+				         </div>
+		            </div>
+		             <div class="panel-heading">
+		                <h5>
+		                    <b>Employment</b>
+		                </h5>
+		            </div>
+		            <div id="collapseInOne">
+		                <div class="panel-body">
+		                   <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>Employment Status:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.employmentStatusList.employmentStatus">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>Current Work Experience:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.currentWorkExperienceList.currentWorkExperience">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>Last Date Worked:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.dateLastWorkedList.dateLastWorked">
+		                    		<span>{{y.dateVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span># of Paid Work Days in Past 30 Days:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.paidDaysLast30List.paidDaysLast30">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>Enrolled in Job Training:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.enrolledInJobTrainingList.enrolledInJobTraining">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+				         </div>
+		            </div>
+		            <div class="panel-heading">
+		                <h5>
+		                    <b>Education</b>
+		                </h5>
+		            </div>
+		            <div id="collapseInOne">
+		                <div class="panel-body">
+		                   <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>High School Graduate:	</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.graduatedFromHighSchoolList.graduatedFromHighSchool">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>Enrolled in School:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.enrolledinSchoolList.enrolledinSchool">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>School Information:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.schoolNameList.schoolName">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+				         </div>
+		            </div>
+		            <div class="panel-heading">
+		                <h5>
+		                    <b>Health Information</b>
+		                </h5>
+		            </div>
+		            <div id="collapseInOne">
+		                <div class="panel-body">
+		                   <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>Pregnancy Status:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6"  ng-repeat="y in personDetailsData.client.pregnancyStatusList.pregnancyStatus">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>Birth Due Date:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.childDueDateList.childDueDate">
+		                    		<span>{{y.dateVal}}</span>
+		                    	</div>
+		                    </div>
+		                    <div class = "col-sm-12">
+		                    	<div class = "col-sm-6">
+		                    		<span>Death Date:</span>
+		                    	</div>
+		                    	<div class = "col-sm-6" ng-repeat="y in personDetailsData.client.dateofDeathList.dateofDeath">
+		                    		<span>{{y.attrVal}}</span>
+		                    	</div>
+		                    </div>
+				         </div>
+		            </div>
+                </div>
+            </div>
+        </div>
+	
+	
+	
+        <!-- div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#!entityDetails#collapseTwo">Individual Source System Records</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                	<div class = "col-sm-12"  ng-repeat="y in personDetailsData.clientIdList.clientId">
+	                	<div class = "col-sm-6" >
+	                    		<span>Source System Record: </span>
+	                    </div>
+	                    <div class = "col-sm-6" style="cursor: pointer;" >
+	                    		<a ng-click = "viewMemberDetails(y.memIdnum,y.srcCode)"><span>{{y.memIdnum + " : " + y.srcCode}}</span></a>
+	                    </div>
+	                 </div>
+                </div>
+            </div>
+        </div> -->
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#!entityDetails#collapseEleven">Human Services Programs</a>
+                </h4>
+            </div>
+            <div id="collapseEleven" class="panel-collapse collapse">
+                <div class="panel-body">
+                	<div  ng-repeat="x in personDetailsData.client.programParticipationList.programParticipation">
+                	<div class="panel-heading">
+		                <h5>
+		                    <b>Program</b>
+		                </h5>
+		            </div>
+		            <div id="collapseInOne">
+		                <div class="panel-body col-sm-12">
+		                	<div class = "col-sm-6">
+		                		 <!-- div class = "col-sm-12">
+			                   	<div class = "col-sm-6">
+			                   		<span>Client ID:</span>
+			                   	</div>
+			                   	<div class = "col-sm-6">
+			                   		<span></span>
+			                   	</div>
+			                  </div> -->
+			                  <div class = "col-sm-12">
+			                  	<div class = "col-sm-6">
+			                  		<span>Program Name:</span>
+			                  	</div>
+			                  	<div class = "col-sm-6">
+			                  		<span>{{x.programName}}</span>
+			                  	</div>
+			                  </div>
+			                  <div class = "col-sm-12">
+			                  	<div class = "col-sm-6">
+			                  		<span>Program ID:</span>
+			                  	</div>
+			                  	<div class = "col-sm-6">
+			                  		<span>{{x.programId}}</span>
+			                  	</div>
+			                  </div>
+			                  <div class = "col-sm-12">
+			                  	<div class = "col-sm-6">
+			                  		<span>Participation Status:</span>
+			                  	</div>
+			                  	<div class = "col-sm-6">
+			                  		<span>{{x.participationType}}</span>
+			                  	</div>
+			                  </div>
+			                  <div class = "col-sm-12">
+			                  	<div class = "col-sm-6" >
+			                  		<span>Case ID:</span>
+			                  	</div>
+			                  	<div class = "col-sm-6">
+			                  		<span>{{x.caseId}}</span>
+			                  	</div>
+			                  </div>
+		                	</div>
+		                	<div class = "col-sm-6">
+		                		 <div class = "col-sm-12">
+			                   	<div class = "col-sm-6">
+			                   		<span>Program Status: </span>
+			                   	</div>
+			                   	<div class = "col-sm-6">
+			                   		<span>{{x.programStatus}}</span>
+			                   	</div>
+			                  </div>
+			                  <div class = "col-sm-12">
+			                  	<div class = "col-sm-6">
+			                  		<span>Start Date:</span>
+			                  	</div>
+			                  	<div class = "col-sm-6">
+			                  		<span>{{x.programStartDate}}</span>
+			                  	</div>
+			                  </div>
+			                  <div class = "col-sm-12">
+			                  	<div class = "col-sm-6">
+			                  		<span>End Date:</span>
+			                  	</div>
+			                  	<div class = "col-sm-6">
+			                  		<span>{{x.programEndDate}}</span>
+			                  	</div>
+			                  </div>
+			                   <div class = "col-sm-12">
+			                  	<div class = "col-sm-6">
+			                  		<span>Privileged Record?</span>
+			                  	</div>
+			                  	<div class = "col-sm-6">
+			                  		<span>{{x.privilegedRecord}}</span>
+			                  	</div>
+			                  </div>
+		                	</div>
+			                 
+				    	</div>
+		            </div>
+		            </div>
+		            <div ng-repeat="x in personDetailsData.client.disabilityList.disability">
+		            <div class="panel-heading">
+		                <h5>
+		                    <b>Disability</b>
+		                </h5>
+		            </div>
+		            <div id="collapseInOne">
+		                <div class="panel-body col-sm-12" >
+		                	<div class = "col-sm-6">
+			                  <div class = "col-sm-12">
+			                   	<div class = "col-sm-6">
+			                   		<span>Disability: </span>
+			                   	</div>
+			                   	<div class = "col-sm-6" >
+			                   		<span>{{x.disabilityName}}</span>
+			                   	</div>
+			                  </div>
+			                  <div class = "col-sm-12">
+			                  	<div class = "col-sm-6">
+			                  		<span>Disability Start Date: </span>
+			                  	</div>
+			                  	<div class = "col-sm-6" >
+			                  		<span>{{x.disabilityStartDate}}</span>
+			                  	</div>
+			                  </div>
+			                  <div class = "col-sm-12">
+			                  	<div class = "col-sm-6">
+			                  		<span>Disability End Date: </span>
+			                  	</div>
+			                  	<div class = "col-sm-6">
+			                  		<span>{{x.disabilityEndDate}}</span>
+			                  	</div>
+			                  </div>
+			                 </div>
+				    	</div>
+		            </div>
+		            </div>
+		          </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#!entityDetails#collapseFour"> Individual Source System Records </a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                	<div>
+	                	 <a ng-click="ShowHideSrc1()" name = "sourceSysRec1" ng-model = "sourceSysRec1" style="cursor:pointer;">CalWIN</a>
+				        <br />
+				        <div ng-show = "IsVisible &&  y.srcCode === 'CALWIN'" ng-repeat="y in personDetailsData.clientIdList.clientId">Source System Record: <a style="cursor:pointer;" ng-click = "viewMemberDetails(y.memIdnum,y.srcCode)"><span>{{y.memIdnum + " - " + y.srcCode}}</span></a></div><br/>
+				         <a ng-click="ShowHideSrc2()" value = "SWITS" ng-model = "sourceSysRec2" style="cursor:pointer;">SWITS </a>
+				        <br />
+				        <div ng-show = "IsVisibleSrc2 &&  y.srcCode === 'SANWITS'" ng-repeat="y in personDetailsData.clientIdList.clientId">Source System Record: <a style="cursor:pointer;" ng-click = "viewMemberDetails(y.memIdnum,y.srcCode)"><span>{{y.memIdnum + " - " + y.srcCode}}</span></a></div><br/>
+				         <a ng-click="ShowHideSrc3()" value = "AVATAR" ng-model = "sourceSysRec3" style="cursor:pointer;">AVATAR </a>
+				        <br />
+				        <div ng-show = "IsVisibleSrc3 &&  y.srcCode === 'AVATAR'" ng-repeat="y in personDetailsData.clientIdList.clientId">Source System Record: <a style="cursor:pointer;" ng-click = "viewMemberDetails(y.memIdnum,y.srcCode)"><span>{{y.memIdnum + " - " + y.srcCode}}</span></a></div><br/>
+				         <a ng-click="ShowHideSrc4()" value = "Probation &&  y.srcCode === 'Probation'" ng-model = "sourceSysRec4" style="cursor:pointer;">Probation </a>
+				        <br />
+				        <div ng-show = "IsVisibleSrc4  &&  y.srcCode === 'Probation'" ng-repeat="y in personDetailsData.clientIdList.clientId">Source System Record: <a style="cursor:pointer;" ng-click = "viewMemberDetails(y.memIdnum,y.srcCode)"><span>{{y.memIdnum + " - " + y.srcCode}}</span></a></div>
+		            </div>
+                	<!--div class = "col-sm-12"  ng-repeat="y in personDetailsData.clientIdList.clientId">
+	                	<div class = "col-sm-6" >
+	                    		<span>Source System Record: </span>
+	                    </div>
+	                    <div class = "col-sm-6" style="cursor: pointer;" >
+	                    		<a ng-click = "viewMemberDetails(y.memIdnum,y.srcCode)"><span>{{y.memIdnum + " - " + y.srcCode}}</span></a>
+	                    </div>
+	                 </div--> 	
+        	</div>
+        </div>
+    </div>
+</div>
+<!-- /Search Criteria -->
+
+
+
+
+
+
+
+

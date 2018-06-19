@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- srinvas -->
+	<groupId>com.ibm.gbs</groupId>
+	<artifactId>consent.auth</artifactId>
+    <name>consent.auth</name>
+    <description>Consent Authorization</description>
+    <packaging>war</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.test.skip>true</maven.test.skip>
+    </properties>
+    
+     <repositories>
+        <repository>
+            <id>com.ibm.db2.jcc</id>
+            <url>https://artifacts.alfresco.com/nexus/content/repositories/public/</url>
+        </repository>
+    </repositories>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.noraui/ojdbc8 -->
+<!-- https://mvnrepository.com/artifact/com.github.noraui/ojdbc7 -->
+<!-- <dependency>
+    <groupId>com.github.noraui</groupId>
+    <artifactId>ojdbc7</artifactId>
+    <version>12.1.0.2</version>
+</dependency> -->
+
+<!-- https://mvnrepository.com/artifact/com.ibm.db2.jcc/db2jcc4 -->
+<dependency>
+    <groupId>com.ibm.db2.jcc</groupId>
+    <artifactId>db2jcc4</artifactId>
+    <version>10.1</version>
+</dependency>
+		
+        <!-- HikariCP connection pool -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+        </dependency>
+        <dependency>
+		 <groupId>io.jsonwebtoken</groupId>
+		 <artifactId>jjwt</artifactId>
+		  <version>0.6.0</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        
+       
+
+ <!--         <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+    		<groupId>org.apache.ibatis</groupId>
+    		<artifactId>ibatis-sqlmap</artifactId>
+    		<version>2.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+   			 <groupId>com.google.code.gson</groupId>
+    		<artifactId>gson</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+		<dependency>
+    	<groupId>com.itextpdf</groupId>
+    	<artifactId>itextpdf</artifactId>
+    	<version>5.0.6</version>
+		</dependency>
+		<!--  		<dependency>
+           <groupId>org.hibernate</groupId>
+           <artifactId>hibernate-core</artifactId>
+           <version>5.2.2.Final</version>
+       </dependency>
+ -->     
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            
+        </plugins>
+    </build>
+</project>

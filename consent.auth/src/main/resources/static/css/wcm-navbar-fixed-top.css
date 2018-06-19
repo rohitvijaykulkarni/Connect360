@@ -1,0 +1,493 @@
+@import url('font-awesome.min.css');
+
+body {
+
+  padding-top: 70px;
+}
+[ng\:cloak], [ng-cloak], .ng-cloak {
+	display: none !important;
+}
+
+.clearfix{
+	clear:both;
+	float:none;
+}
+input:required:after { 
+   content:"*";
+   color:red;
+}
+.txtright{
+	text-align: right;
+    
+}
+.cursor
+{
+	cursor:pointer;
+}
+.red{
+	color:red;
+}
+.hide{
+	display:none;
+}
+.show{
+	display:block;
+}
+.martop30{
+	 margin-top: 90px;
+}
+.martop15{
+	margin-top:15px;
+}
+.marrgt15{
+	margin-right: 15px;
+}
+
+.toprow{
+	margin: 0 0 10px 0;
+}
+.colorwhite, .colorwhite:hover{
+	color:#fff;
+}
+h2{
+	margin-top:80px;
+	margin-bottom:0;
+}
+
+.checkbox{
+	margin-top: 4px;
+	margin-bottom: 0;
+}
+
+.checkbox+.checkbox, .radio+.radio{
+	margin-top: 4px;
+}
+
+.modal-header, h4, .close {
+      background-color: #07bbe3;
+    color: white !important;
+    font-size: 28px;
+    margin-top: 0;
+   
+    text-align: left;
+  }
+.modal-footer {
+    background-color: #f9f9f9;
+}
+.modal-dialog {
+   /* margin: 170px auto;
+    width: 600px;*/
+}
+
+.navbar{
+    background-color: #1f3a4d;
+    background-image: linear-gradient(to bottom, #1f3a4d, #1f3a4d);
+    background-repeat: repeat-x;
+    border-bottom: 2px solid black;
+    box-shadow: 1px 1px 2px #1f3a4d;
+    color: #ffffff;
+   width: 100%;
+}
+
+.navbar-default .navbar-nav > li > a{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #048ae4;
+    background-image: linear-gradient(to bottom, black, black);
+    background-repeat: repeat-x;
+    border-color: #012f4e #012f4e #012f4e;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    color: #eeeeee;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 4px 4px 0 0;
+    line-height: 20px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover,.navbar-default .navbar-nav > li > a:hover{
+	background-color: #047ed0;
+    background-image: linear-gradient(to bottom, #048ae4, #036cb2);
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #20a3fb;
+    color: #ffffff;
+}
+
+.jumbotron{
+	background-color: #07bbe3;
+}
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+	color:#0bb8e4;
+	 text-transform: uppercase;
+	 line-height: 30px;
+	 height: 40px;
+	 padding: 0px 15px 15px 15px;
+	 font-size: 18px;
+}
+.navbar-collapse.collapse{
+	 margin-top: 12px;
+	 display:none;
+}
+.panel-default > .panel-heading {
+    background-color: #07bbe3;
+    border-color: #ddd;
+    color: #fff;
+}
+.panel-heading .btn-box-right {
+    color: #128dc2;
+    display: block;
+    float: right;
+    font-size: 12px;
+    line-height: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+    padding: 3px 5px;
+    position: relative;
+    top: -5px;
+}
+.panel-heading .btn-box-right:hover {
+    color: #0c5a7c;
+}
+.icon-reorder::before {
+     font-family: 'FontAwesome';
+    content: "\f078";
+}
+.collapsed .icon-reorder::before {
+     font-family: 'FontAwesome';
+    content: "\f054"; 
+}
+[class^="icon-"]::before, [class*=" icon-"]::before {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+.btn [class^="icon-"], .nav-tabs [class^="icon-"], .btn [class*=" icon-"], .nav-tabs [class*=" icon-"] {
+    line-height: 0.9em;
+}
+
+
+/****** table *****/
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #1f3a4d; 
+  color: white; 
+  font-weight: bold; 
+}
+
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+}
+
+
+
+.alert .close{
+    background-color: transparent;
+    color: #000 !important;
+    font-size: 21px;
+    
+}
+.ui-autocomplete-input {
+  border: none; 
+  font-size: 14px;
+  width: 300px;
+  height: 24px;
+  margin-bottom: 5px;
+  padding-top: 2px;
+  border: 1px solid #DDD !important;
+  padding-top: 0px !important;
+  z-index: 1511;
+  position: relative;
+}
+.ui-menu .ui-menu-item a {
+  font-size: 12px;
+}
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1510 !important;
+  float: left;
+  display: none;
+  min-width: 160px;
+  width: 160px;
+  padding: 4px 0;
+  margin: 2px 0 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+}
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.ui-state-hover, .ui-state-active {
+      color: #ffffff;
+      text-decoration: none;
+      background-color: #0088cc;
+      border-radius: 0px;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      background-image: none;
+}
+
+.noresult {
+    color: red;
+    font-size: 11px;
+    padding: 5px 5px 0px 5px;
+}
+
+.mainContainer {
+    border: 1px solid #cccccc;
+    border-radius: 0;
+    box-shadow: 0 2px 4px 0 rgb(204, 204, 204);
+    margin: 25px auto 35px;
+    padding: 25px 45px;
+    
+}
+
+.formDivider {
+    background: rgba(0, 0, 0, 0) url("../images/grayLine.jpg") repeat-x scroll center center;
+    margin: 15px 15px 15px 20px;
+}
+
+
+.formDivider span {
+    background: white none repeat scroll 0 0;
+    color: #cfcfcf;
+    padding-right: 5px;
+}
+
+input.error, select.error {
+    border: 1px solid #d3191e;
+}
+label.error {
+    color: #d3191e;
+    padding-left: 10px;
+}
+
+/*Sidebar css*/
+/*
+.sidebar{
+    background-color: #1f3a4d;
+    background-image: linear-gradient(to bottom, #1f3a4d, #1f3a4d);
+    background-repeat: repeat-x;
+    border-bottom: 2px solid #048ae4;
+    box-shadow: 1px 1px 2px #1f3a4d;
+    color: #ffffff;
+   width: 190px;
+   height:100%;
+   padding-top:40px;
+}
+
+.sidebar-default .sidebar-nav > li > a{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #048ae4;
+    background-image: linear-gradient(to bottom, #048ae4, #048ae4);
+    background-repeat: repeat-x;
+    border-color: #012f4e #012f4e #012f4e;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    color: #eeeeee;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 4px 4px 0 0;
+    line-height: 20px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.sidebar-default .sidebar-nav > .active > a, .navbar-default .sidebar-nav > .active > a:focus, .sidebar-default .sidebar-nav > .active > a:hover,.sidebar-default .sidebar-nav > li > a:hover{
+	background-color: #047ed0;
+    background-image: linear-gradient(to bottom, #048ae4, #036cb2);
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #20a3fb;
+    color: #ffffff;
+}
+.sidebar-default .navbar-brand, .sidebar-default .navbar-brand:focus, .sidebar-default .sidebar-brand:hover{
+	color:#0bb8e4;
+	 text-transform: uppercase;
+	 line-height: 30px;
+	 height: 40px;
+	 padding: 0px 80px 15px 0px;
+	 font-size: 18px;
+}
+.sidebar-collapse.collapse{
+	 margin-top: 36px;
+	 display:block;
+}
+.sidebar-list{
+	width:165px;
+	padding-left: 10px;
+}
+.pageContainer{
+	width: 80%;
+}
+.sidebarDiv{
+	padding-left:0 !important;
+}*/
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a.active {
+  /* color: #FDFDFD !important;
+    background-image: linear-gradient(to bottom, black, black);*/
+    color: black;
+}
+.sidebar-default .sidebar-nav>li>a:focus, .sidebar-default .sidebar-nav>li>a:hover,.sidebar-default .sidebar-nav>li>a.active {
+    color: #FDFDFD !important;
+    background-image: linear-gradient(to bottom, black, black);
+}
+.activeClass{
+	color: black !important;
+	background-color: #0A75C4 !important;
+    background-image: linear-gradient(to bottom, #0A75C4, #0A75C4) !important;
+}
+/*nav bar css */
+ ul#topnav {
+ margin: 0; padding: 0;
+ float: left;
+ width: 750px;
+ list-style: none;
+/*position: relative; /*--Set relative positioning on the unordered list itself - not on the list item--*/
+ font-size: 1.2em;
+ background: url(topnav_stretch.gif) repeat-x;
+}
+ul#topnav li {
+ float: left;
+ margin: 0; padding: 0;
+ border-right: 1px solid #555; /*--Divider for each parent level links--*/
+}
+ul#topnav li a {
+ padding: 10px 15px;
+ display: block;
+ color: #f0f0f0;
+ text-decoration: none;
+}
+ul#topnav li:hover { background: #1376c9 url(topnav_active.gif) repeat-x; }
+/*--Notice the hover color is on the list item itself, not on the link. This is so it */
+
+ul#topnav li span {
+ float: left;
+ padding: 10px 0;
+ position: absolute;
+ left: 0; 
+ top:43px;
+ display: none; /*--Hide by default--*/
+ width: 750px;
+ height:41px;
+ background: #1376c9;
+ color: #fff;
+ /*--Bottom right rounded corner--*/
+ -moz-border-radius-bottomright: 5px;
+ -khtml-border-radius-bottomright: 5px;
+ -webkit-border-bottom-right-radius: 5px;
+ /*--Bottom left rounded corner--*/
+ -moz-border-radius-bottomleft: 5px;
+ -khtml-border-radius-bottomleft: 5px;
+ -webkit-border-bottom-left-radius: 5px;
+}
+ul#topnav li:hover span { display: block; } /*--Show subnav on hover--*/
+ul#topnav li span a { display: inline; } /*--Since we declared a link style on the parent list link, we will correct it back to its original state--*/
+ul#topnav li span a:hover {text-decoration: underline;}
+.subMenuClass{
+	display:block !important;
+	
+}
+a:focus{
+	background-color: #0A75C4;
+}
+.nav> li{
+	position:initial;
+}
+
+.activeMenu,
+.activeMenu a:visited {
+  color: red;
+}
+.active {
+    background-color : green
+}

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.ibm.db2.jcc.DB2Driver</property>
+      <!--   <property name="hibernate.connection.password">system</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@127.0.0.1:1521:xe</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.current_session_context_class">thread</property> 
+       -->   
+         <property name="hibernate.connection.password">DB2aDmn22#</property>
+        <property name="hibernate.connection.url">jdbc:db2://10.52.1.23:50000/SNMACCP</property>
+        <property name="hibernate.connection.username">db2admn</property>
+        <property name="hibernate.current_session_context_class">thread</property>   
+        <property name="hibernate.dialect">org.hibernate.dialect.DB2Dialect</property>
+        <property name="hibernate.search.autoregister_listeners">true</property>        
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdpersonconsenthistory" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdorgrolejobuser" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdpersonconsent" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.PgStatStatements" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Users" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdconsentgroup" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdconsentgrouptxn" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.UserAuthority" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.OauthClientDetails" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdconsentexception" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdabactransaction" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Organisationunit" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Authority" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdauthorizationgroup" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Securityrole" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdabaccontrolgroup" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdabaccontrolobject" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdproxypersonconsent" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Usr" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Clientdetails" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdabacconstraint" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdabacorganisation" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.C360SavedResults" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdauthorizationpolicyset" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.Cosdauthorizationpolicy" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.AuthRequest" />
+        <mapping class="com.ibm.gbs.consentmgmt.dto.ReferralLA" />
+        <mapping class="com.ibm.gbs.consentmgmt.wcm.dto.Cohort" />
+        <mapping class="com.ibm.gbs.consentmgmt.wcm.dto.CohortRule" />
+         <mapping class="com.ibm.gbs.consentmgmt.wcm.dto.CohortTarget" />
+        <mapping class="com.ibm.gbs.consentmgmt.wcm.dto.Target" />  
+         <mapping class="com.ibm.gbs.consentmgmt.wcm.dto.ReasonCode" />  
+         <mapping class="com.ibm.gbs.consentmgmt.wcm.dto.RegistrationRequest" />
+         <mapping class="com.ibm.gbs.consentmgmt.wcm.dto.ReferralStatusHist" />   
+         
+         <mapping class="com.ibm.wcm.ods.dto.CpAsscContactSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpDemoPrvAddrSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpAdsTestResultSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpHlthInsSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpDemoEmplSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpMhsInfoSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileMhsSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpDemoPrvPhoneSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpDemoVehicleSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CalwinClientDemo"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpHlthPrvdrSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileLglSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileHsngSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfilePsaSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientPhoneTgt"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientDemoSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientPhoneSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfilePapSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpDemoPhyAddrSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientDemoTgt"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpHlthMedStatusSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileHlthSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpAdsEncounterSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.MvVwcosdieClientInd1V"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfilePapSrcT1"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientProgramSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfilePntySrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpHlthHospSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientTgt"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientAddressSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientAddressTgt"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpHlthMedImmunSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileFnclSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpAdsAbuseSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpDemoIdmarkSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileAdsSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpPsaEncounterSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileMedSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientDisabilitySrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientDisabilityTgt"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpPntyFindingSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpPscProviderSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpDemoAkaSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileCjSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpHlthInstSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpHlthTestSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.InitloadClientSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpHlthMedSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpPsaContactSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpPapEligSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileCwSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.MvVwcosdieClient"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpPscEncounterSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.CpMhsEncounterSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfilePscSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileCsSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileAsscSrc"/>
+        <mapping class="com.ibm.wcm.ods.dto.ClientProfileDemoSrc"/>  
+    </session-factory>
+</hibernate-configuration>

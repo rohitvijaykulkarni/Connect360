@@ -1,0 +1,152 @@
+<div class="container" ng-controller="configCtrl">
+
+      <div class="row toprow">
+		  <h2 class="col-sm-10">Configuration Test Utility</h2>   
+		  
+	  </div>
+     
+     <div class="row toprow">
+     	<div class="alert alert-success alert-dismissable" ng-if="sucessMsg">
+		    <a href="" class="close" data-dismiss="alert" aria-label="close">x</a>
+		    {{sucessMsg}}
+		</div>
+		<div class="alert alert-danger alert-dismissable" ng-if="errorMsg">
+		    <a href="" class="close" data-dismiss="alert" aria-label="close">x</a>
+		    {{errorMsg}}
+		</div>
+     </div>
+     
+     
+     <div class="panel panel-default">
+        <div class="panel-heading">Configuration Test Input
+          <button class="btn btn-box-right collapsed" data-toggle="collapse" href="#demo" >
+              <i class=" fa fa-expand"></i>
+          </button>
+        </div>
+         <div id="demo" class="collapse in">
+          <div class="panel-body">
+            <form name="auditSearchForm">
+	           <div class="form-group col-sm-6">
+                 <label for="ctrlGroup">Transaction Name:</label>
+                 <select class="form-control" id="conTranData" required ng-model="conTranData"  name="conTranData"
+				    ng-change="selectedTransaction(conTranData)"
+			        value="{{x.transactionname}}">
+			        <option value="">Choose</option>
+			        <option ng-repeat = "x in existTranDataNew">{{x.transactionname}}</option>
+				 </select>
+              </div>
+               <div class="form-group col-sm-6">
+                 <label for="ctrlGroup">Selected Transaction</label>
+                 <div class="form-control" id="selTranData">
+				    <span>{{conTranData}}</span>
+				 </div>
+              </div>
+              <div class="form-group col-sm-6">
+                 
+              </div>
+              <div class="form-group col-sm-6">
+                 <label for="ctrlGroup">Attributes of Transaction</label>
+                 <div class="form-control" id="selTranData" ng-repeat = "x in existAttrDataNew">
+				    <span>{{x.attributename}}</span>
+				 </div>
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="sourceSystem">Input for Configuration Test</label>
+                <div>
+                	<a href ng-click="toggleModal()">Sample Input Format</a>
+                </div>
+              </div>
+              <modal visible="showModal">
+              	<div ng-modal = "sampleData">
+              		 {<br/>
+              		     "userName": "Sandy",<br/>
+              		      "clientID": "2",<br/>
+              		      "srcSystem": "LA",<br/>
+              		      "transactionid": "100",<br/>    
+              		 	  "transName": "txn",<br/>
+              		 	  "constraintid": "200",<br/>
+              		 	  "constraintName": "constraintName",<br/>
+              		 	  "constraintValue": "value",<br/>
+              		 	  "privilegeRequested": "prvile1",<br/>
+              		 	  "accessReason": "reson1",<br/>   
+              		       "apiSwitch": "Policy",<br/>
+              		       attributehm": <br/>
+              		       	{<br/>
+              		       	        "Minor": "Yes",<br/>
+              		       	        "Parolee": "No" <br/>
+              		       	}<br/>  
+              		   }<br/>
+              		
+              	</div>
+			    <div class="form-group col-sm-12">
+			    <button type="ok" class="btn btn-default" id = "sampleData"  data-dismiss="modal">Ok</button>
+              </div>
+			  </modal>
+            	<div class="form-group col-sm-12">
+	                <textarea rows="15" cols="50"  id = "jsonData" json-text ng-model='jsonData'>
+	                {{jsonData|json}}
+					</textarea>
+              </div>
+              <div class="form-group col-sm-12">
+              	<button type="submit" ng-click="search(jsonData)" class="btn btn-default" >Verify Permission</button>
+              	<button type="reset" ng-click="reset()" class="btn btn-default">Reset</button>
+              </div>
+             <!-- div class="form-group col-sm-6">
+                <label for="userName">User Name:</label>
+                <input type="text" autocomplete="off" class="form-control" autocomplete="off" ng-model="userName"  placeholder="User Name" name="UserName">
+              </div>
+              
+              <div class="form-group col-sm-6">
+                <label for="clientid">Client ID:</label>
+                <input type="text" autocomplete="off" class="form-control" autocomplete="off" ng-model="clientid"  placeholder="Client ID" name="clientid">
+              </div>
+              
+              <div class="form-group col-sm-6">
+                <label for="sourceSystem">Source System:</label>
+                <input type="text" autocomplete="off" class="form-control" autocomplete="off" ng-model="sourceSystem"  placeholder="Source System" name="sourceSystem">
+              </div>
+            
+              <div class="form-group col-sm-6">
+                 <label for="ctrlGroup">Transaction Name:</label>
+                 <select class="form-control" id="conTranData" required ng-model="conTranData"  name="conTranData">
+				  		<option value="">Choose</option>
+				        <option  ng-repeat="x in existTranDataNew" value="{{x.transactionname}}">{{x.transactionname}}</option>
+				 </select>
+              </div>
+              
+              <div class="form-group col-sm-6">
+                <label for="ctrlGroup">Api Switch:</label>
+                 <select class="form-control" id="apiSwitch" ng-model="apiSwitch"  name="apiSwitch">
+				  		<option value="consent">Consent</option>
+				        <option value="policy">Policy</option>
+				        <option value="both">Both</option>
+				        <option value="BTG">BTG</option>
+				 </select>
+              </div>
+              
+              <div class="form-group col-sm-6">
+                 <label for="ctrlGroup">Attribute Name:</label>
+                 <select class="form-control" id="conAttrData" required ng-model="conAttrData"  name="conAttrData">
+				  		<option value="">Choose</option>
+				        <option  ng-repeat="x in existAttrDataNew" value="{{x.attributename}}">{{x.attributename}}</option>
+				 </select>
+              </div>
+              <div class="form-group col-sm-12">
+              	<button type="submit" ng-click="search(userName,clientid,sourceSystem,conTranData,apiSwitch)" class="btn btn-default" >Verify Permission</button>
+              	<button type="reset" ng-click="reset()" class="btn btn-default">Reset</button>
+              </div-->
+            </form>
+          </div>
+        </div>
+      </div> <!-- /Search Criteria -->
+     
+
+       <div class="row toprow">
+		  <h3>Display Result - <span>{{result}}</span></h3>   
+		  
+	  </div>
+
+
+
+</div> <!-- /container /controlGroupCtrl -->
+
